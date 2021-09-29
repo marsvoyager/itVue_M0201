@@ -1,0 +1,67 @@
+/*
+ - Página de estilo para un documento web estructurado
+El orden de definición de estilos más común sería:
+1) Resetear algunas variables de estilo
+2) Definir fuentes
+3) Definir un elemento container para definir el layout general de la página
+ - Temporalmente, colocar el PSD como background para tener una primera impresión
+general de la página
+*) Otros elementos
+4) definir el layout mezclado con los media-queries para hacerlo resposive
+
+*/
+
+/*
+Font size: TODO!!
+*/
+/*
+    RESET CSS....
+*/
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+    
+html{                
+    font-size:100%; /*asegurar el tamaña de fuente*/
+    /*font-family: fuenteCorp1wf;*/
+}
+
+._container{
+    /*TEMPORAL!!*/    
+    background:url("../zzimages/psd.png");
+    /*TEMPORAL!!*/
+    background-position: 0 0vh;
+    /*TEMPORAL!!
+    background-position: 0 60vh;*/
+    
+    background-repeat:no-repeat;
+    /*
+    background-size:contain;
+    height:280vh;    
+    display:grid;*/
+}
+/* LAyouts for griditems */
+._container>._itemflex
+{
+    display:flex;
+}
+
+._item11x{            
+            grid-area: _gcnormal_1;
+            flex-direction:column;
+            justify-content: center;
+            align-items:center;            
+        }
+        ._item11x > *{
+            margin: 0.5rem 0rem;
+        }
+        
+        ._item22x{
+            grid-area: _gcnormal_2;
+            padding: 0 2rem;
+            
+        }

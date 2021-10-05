@@ -1,6 +1,11 @@
 /*
+Autor: "marsvoyager" Martínez
  - Página de estilo para un documento web estructurado
-El orden de definición de estilos más común sería:
+
+ Basado en el sistema de auto cálculo de medidas según especificaciones 
+ "CSS Values and Units Module Level 3 (CSS Values 3)" 
+ 
+ El orden de definición de estilos más común sería:
 1) Resetear algunas variables de estilo
 2) Definir fuentes
 3) Definir un elemento container para definir el layout general de la página
@@ -8,6 +13,7 @@ El orden de definición de estilos más común sería:
 general de la página
 *) Otros elementos
 4) definir el layout mezclado con los media-queries para hacerlo resposive
+
 
 */
 
@@ -23,45 +29,139 @@ Font size: TODO!!
     padding:0;
     box-sizing:border-box;
 }
-
-    
+   
 html{                
     font-size:100%; /*asegurar el tamaña de fuente*/
     /*font-family: fuenteCorp1wf;*/
 }
-
-._container{
-    /*TEMPORAL!!*/    
+/*
+El único contenedor abarca el "todo"
+Establecer altura y color de fondo
+*/
+container{
+   background:#E6E7E9; 
+    position: absolute;  
+    height:9vh; 
+       /*TEMPORAL!!*/    
     background:url("../zzimages/psd.png");
     /*TEMPORAL!!*/
-    background-position: 0 0vh;
+    background-position: 0 60vh;
     /*TEMPORAL!!
     background-position: 0 60vh;*/
     
     background-repeat:no-repeat;
-    /*
-    background-size:contain;
-    height:280vh;    
-    display:grid;*/
-}
-/* LAyouts for griditems */
-._container>._itemflex
+} 
+.banner 
 {
-    display:flex;
+    position: absolute;
+    --bannerwidthA: 18vh;
+    --bannerheightA: 3vw;
+    left: var(--bannerwidthA);
+    top: var(--bannerheightA);
+    height: calc(100% - var(--bannerheightA)*2);
+    width: calc(100% - var(--bannerwidthA)*1.5);
+    background:#E6E7E9; 
+}
+/*
+ Todo lo que hay en el contenedor estará en coordenadas relativas
+*/
+.banner *
+{
+    position: relative;   
+    left: calc(100% /6);    
+    border-color:#E6E7E9;
+    border-style: solid; 
+    width: calc(100% /1.5);  
+    
+}
+/*
+Estilo de la cabecera, estableciendo un borde en coordenadas relativas a altura y anchura
+*/
+header{   
+     top:  calc(var(--bannerwidthA)/16);
+    height: calc(10%);
+    background:#4B4B4D; 
+}
+header .logo{
+    float: left; 
+    top: calc(10%);
+    left: calc(1%);
+    height: calc(50%);
+    width: 14vw;
+    
+    border-color:#4B4B4D;
+    border-style: solid;
+    margin: 1.5vh;
+    background:#D2D3D5;
 }
 
-._item11x{            
-            grid-area: _gcnormal_1;
-            flex-direction:column;
-            justify-content: center;
-            align-items:center;            
-        }
-        ._item11x > *{
-            margin: 0.5rem 0rem;
-        }
-        
-        ._item22x{
-            grid-area: _gcnormal_2;
-            padding: 0 2rem;
-            
-        }
+/*Estilo de la barra de navegación y
+del grupo de navegación, 
+suponiendo 5 botones al 20% de la anchura!*/
+nav{
+    top: calc(1%);
+    
+    height: calc(5%);
+      
+    /*background:#D2D3D5;*/
+}
+nav .div1{    
+    left:0;
+    background:#97989A;
+    float:left; 
+    height:100%;
+    width:20%;
+}
+/*
+Sección generica suponiendo 3 grupos 
+*/
+section{
+    height: calc(25%);
+    
+   
+    background:#4B4B4D;
+}
+section .div1{
+    left:0;
+    background:#97989A;
+    float:left; 
+    height:100%;
+    width:33.33%;
+}
+/*
+ Artículo con contenido centrado
+*/
+article{
+   height: calc(100% /2);
+    background:#97989A;
+    
+}
+article div{
+    left:0;
+    height:100%;    
+    background:#4B4B4D;  
+    border:0;   
+    
+}
+/*
+Pie de página con caracterisiticas similares a
+la cabecera
+*/
+footer{  
+    height: calc(9.6%);    
+    background:#4B4B4D;    
+}
+/* Botones sociales en la cabecera, alineados flotantes
+de derecha a izquierda, usando el redondeo 
+para dar efecto esféric
+o*/
+header .dotpoint{
+    float: right;
+    top: calc(10%);
+    left:0;    
+    background:white;
+    height: calc(30%);
+    width: calc(2%) ;
+    margin: 2vh 0.5vw;    
+    border-radius: 10px;  
+}

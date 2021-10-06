@@ -29,22 +29,40 @@ Font size: TODO!!
     padding:0;
     box-sizing:border-box;
 }
-   
+
+@font-face {
+    font-family: fuenteCorp1wf;
+    
+    src: url('../fonts/raleway-light-webfont.woff');
+}
+@font-face {
+    font-family: fuenteCorpLogo1wf;
+    src: url('../fonts/ubuntu-c-webfont.woff');
+}
+@font-face {
+    font-family: fuenteCorp1wf2;
+    src: url('../fonts/fontawesome-webfont.woff2');
+}
+@font-face {
+    font-family: fuenteCorpotf;
+    src: url('../fonts/FontAwesome.otf');
+}
+
+
 html{                
     font-size:100%; /*asegurar el tamaña de fuente*/
     /*font-family: fuenteCorp1wf;*/
+    font-family: fuenteCorp1wf;
+}
+button{
+    font-family: fuenteCorp1wf;
+    
 }
 
 /*
-    RESERT
+Quitar estilo a a
 */
-html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,b, u, i, center,
-dl, dt, dd, ol, ul, li,fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,menu, nav, output, ruby, section, summary,
-time, mark, audio, video
+a, ol, ul
 {
     margin: 0;
     padding: 0;
@@ -54,98 +72,70 @@ time, mark, audio, video
     vertical-align: baseline;
 }
 
-html {
-    line-height: 1;
-}
-
 ol, ul {
     list-style: none;
 }
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+a {
+    text-decoration: none;
+    
 }
-
-caption, th, td {
-    text-align: left;
-    font-weight: normal;
-    vertical-align: middle;
-}
-
-q, blockquote {
-    quotes: none;
-}
-
-    q:before, q:after, blockquote:before, blockquote:after {
-        content: "";
-        content: none;
-    }
-
 a img {
-    border: none;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary
-{
-    display: block;
+    border: none;    
 }
 
 /*
 El único contenedor abarca el "todo"
 Establecer altura y color de fondo
 */
-container{
-   background:#E6E7E9; 
-    position: absolute;  
-    height:9vh; 
-       /*TEMPORAL!!*/    
-    background:url("../zzimages/psd.png");
-    /*TEMPORAL!!*/
-    background-position: 0 60vh;
-    /*TEMPORAL!!
-    background-position: 0 60vh;*/
-    
-    background-repeat:no-repeat;
-} 
-.banner 
+
+.container 
 {
-    position: absolute;
+    /*
+    TEMPORAL!!
+    background:url("../zzimages/psd.png");    
+    background-position: 0 60vh;    
+    background-position: 0 60vh;    
+    background-repeat:no-repeat;
+    */
     --bannerwidthA: 18vh;
     --bannerheightA: 3vw;
+    /*position: absolute;
+    
     left: var(--bannerwidthA);
     top: var(--bannerheightA);
     height: calc(100% - var(--bannerheightA)*2);
     width: calc(100% - var(--bannerwidthA)*1.5);
     background:#E6E7E9; 
-}
-
-.banner2
-{
+    */
     position: absolute;
     height: 100vh;
     width: 100%;
     background:#E6E7E9; 
+    box-sizing:content-box;
 }
 /*
  Todo lo que hay en el contenedor estará en coordenadas relativas
 */
-.banner *
+.container > *
 {
-    position: relative;   
+    position: relative;
     left: calc(100% /6);    
     border-color:#E6E7E9;
-    border-style: solid; 
-    width: calc(100% /1.5);  
+    /*
+    border-style: solid; */
+    width: calc(100vw / 1.5);
+    margin: 0 0 3vh 0;
     
+    /*padding: 0.5vh 0 0.5vh;*/
 }
 /*
 Estilo de la cabecera, estableciendo un borde en coordenadas relativas a altura y anchura
 */
 header{   
      top:  calc(var(--bannerwidthA)/16);
-    height: calc(10%);
-    background:#4B4B4D; 
+    height: calc(9%);
+    background:#4B4B4D url("../img/header_bg.png") no-repeat center; 
+    background-size: auto;
 }
 header .logo{
     float: left; 
@@ -153,107 +143,183 @@ header .logo{
     left: calc(1%);
     height: calc(50%);
     width: 14vw;
-    
-    border-color:#4B4B4D;
-    border-style: solid;
-    margin: 1.5vh;
+
+    margin: 2vh;
     background:#D2D3D5;
+
     background-position: 0 0;
     background:url("../img/pp_logo120x73.png") no-repeat center;
     background-size: auto;
-    
+
 }
 
+/* Botones sociales en la cabecera, alineados flotantes
+de derecha a izquierda, usando el redondeo 
+para dar efecto esféric
+o*/
+header .dotpoint{
+    float: right;
+    top: calc(10%);
+    left:0;    
+    background:white;
+    height: calc(50%);
+    width: calc(4%) ;
+    margin: 2vh 1vw;
+    border-radius: 100px; 
+   /* background-position: 0 0;
+    background:url("../img/pp_logo120x73.png") no-repeat center;
+    background-size: auto;*/
+
+}
+header .soc_tw{
+     background-position: 0 0;
+    background: url(../img/twitter.png) no-repeat center;
+    background-size: auto;  
+    border-color:#4B4B4D;
+}
+header .soc_fb{
+    background: url(../img/facebook.png) no-repeat center;
+    background-size: auto;  
+    border-color:#4B4B4D;
+}
+header .soc_in{
+    /*height: calc(100%);
+    width: calc(100%);
+    border-style: none;
+    margin: auto;*/
+    background: url(../img/linkedin.png) no-repeat center;
+    background-size: auto;      
+}
 /*Estilo de la barra de navegación y
 del grupo de navegación, 
 suponiendo 5 botones al 20% de la anchura!*/
 nav{
-    top: calc(1%);
-    
-    height: calc(5%);
-      
-    /*background:#D2D3D5;*/
+    top: calc(1%);    
+    height: calc(4%);      
+    /*background:#D2D3D5;*/    
+   /* box-sizing:content-box;*/
 }
-nav .div1{    
-    left:0;
+/*
+ Alinear manualmente los divs y dejar el último hijo con una
+medida a mano
+*/
+nav .navitems{    
+    /*left:0;*/
     background:#97989A;
+    border-color:#E6E7E9;
     float:left; 
     height:100%;
-    width:20%;
+    width:19.8%;
+    
+    /*padding: 0 3vw 0;*/
+    /*margin: 0 calc(0.01%) 0vw calc(0.01%);*/
+    margin: 0 calc(1vw/3) 0 0;
+    padding: 1vh 2vw;
+}
+nav .navitems:last-child{    
+    /*left:0;*/
+    background:#97989A;
+    border-color:#E6E7E9;
+    float:left; 
+    height:100%;
+    width:18.8%;
+    
+    /*padding: 0 3vw 0;*/
+    /*margin: 0 calc(0.01%) 0vw calc(0.01%);*/
+    margin: 0 0 0 0; 
+    
+}
+nav .navitems:hover{
+    background: #E6E7E9;
 }
 /*
 Sección generica suponiendo 3 grupos 
 */
 section{
-    height: calc(25%);
-    
-   
-    background:#4B4B4D;
+    height: calc(24%);
+    /*background:#4B4B4D;*/
+}
+/*
+ Alinear manualmente los divs y dejar el último hijo con una
+medida a mano
+*/
+section .div1:first-child{
+    background: green url("../img/firefox.png") center no-repeat;
 }
 section .div1{
-    left:0;
+    /*left:0;*/
+    /*background:#97989A;*/
+    float:left; 
+    height:100%;
+    width:32.73%;
+    margin: 0 0.7vw 0 0;
+    background: black url("../img/firefox_png1.png") center no-repeat;
+    
+}
+section .div1:last-child{
+    /*left:0;*/
     background:#97989A;
     float:left; 
     height:100%;
-    width:33.33%;
+    width:32.42%;
+    margin: 0 0 0 0;
+    background: grey url("../img/firefox.png") center no-repeat;
+    
 }
+
 /*
  Artículo con contenido centrado
+ -
 */
 article{
-   height: calc(100% /2);
+   height: calc(80% /2);
     background:#97989A;
+    margin: auto;
+    padding: 1vh;
+    overflow:hidden
     
 }
+
 article div{
+    padding: 1vh;
     left:0;
-    height:100%;    
-    background:#4B4B4D;  
-    border:0;   
-    
+    height:calc(33.33%);
+    background:#4B4B4D; 
+    width:50%;
+    margin: 0 calc(50%/2) 0;
+    text-align:justify;
+    font-style: oblique;
+    color: white;
+    /*padding: 1vw;
+    border-color:red;*/
+    overflow:hidden;
+}
+article a{
+   display:inline-block; 
 }
 /*
 Pie de página con caracterisiticas similares a
 la cabecera
 */
 footer{  
-    height: calc(9.6%);    
-    background:#4B4B4D;    
+    height: calc(8.1%);    
+    background:#4B4B4D;
+    color:azure;
+    text-align: left;
+    margin:auto;
+    font-size: 1.1vh;
+    padding: 1vh;
 }
-/* Botones sociales en la cabecera, alineados flotantes
-de derecha a izquierda, usando el redondeo 
-para dar efecto esféric
-o*/
-header .dotpoint{
-    
-    float: right;
-    top: calc(10%);
-    left:0;    
-    /*background:white;*/
-    height: calc(35%);
-    width: calc(2%) ;
-    margin: 2vh 0.5vw;  
-    shape-margin: none; 
-    /*border-radius: 10px;  */
-    border-style: none;
-    
-
+footer *{
+    float: left;
+    width: 50%;
 }
-.soc_tw{
-    background: url(../img/twitter.png) no-repeat right top;
-    background-size: cover;  
-    border-color:#4B4B4D;
-}
-.soc_fb{
-    background: url(../img/facebook.png) no-repeat right top;
-    background-size: contain;  
-    border-color:#4B4B4D;
-}
-.soc_in{
-    height: calc(100%);
-    width: calc(100%);
-    border-style: none;
-    margin: auto;
-    background: url(../img/linkedin.png) no-repeat right top;
-    background-size: contain;      
+/*
+ Un elemento con propiedades específicas.
+*/
+#_mail {
+    float:right;
+    height: 100%;
+    background: grey; 
+    text-align: right;    
 }

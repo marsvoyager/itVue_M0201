@@ -38,48 +38,53 @@ html{
 El único contenedor abarca el "todo"
 Establecer altura y color de fondo
 */
-container{
-   background:#E6E7E9; 
-    position: absolute;  
-    height:9vh; 
-       /*TEMPORAL!!*/    
-    background:url("../zzimages/psd.png");
-    /*TEMPORAL!!*/
-    background-position: 0 60vh;
-    /*TEMPORAL!!
-    background-position: 0 60vh;*/
-    
-    background-repeat:no-repeat;
-} 
-.banner 
+
+.container 
 {
-    position: absolute;
+    /*
+    TEMPORAL!!
+    background:url("../zzimages/psd.png");    
+    background-position: 0 60vh;    
+    background-position: 0 60vh;    
+    background-repeat:no-repeat;
+    */
     --bannerwidthA: 18vh;
     --bannerheightA: 3vw;
+    /*position: absolute;
+    
     left: var(--bannerwidthA);
     top: var(--bannerheightA);
     height: calc(100% - var(--bannerheightA)*2);
     width: calc(100% - var(--bannerwidthA)*1.5);
     background:#E6E7E9; 
+    */
+    position: absolute;
+    height: 90vh;
+    width: 100%;
+    background:#E6E7E9; 
+    box-sizing:content-box;
 }
 /*
  Todo lo que hay en el contenedor estará en coordenadas relativas
 */
-.banner *
+.container > *
 {
-    position: relative;   
+    position: relative;
     left: calc(100% /6);    
     border-color:#E6E7E9;
-    border-style: solid; 
-    width: calc(100% /1.5);  
+    /*
+    border-style: solid; */
+    width: calc(100vw / 1.5);
+    margin: 0 0 3vh 0;
     
+    /*padding: 0.5vh 0 0.5vh;*/
 }
 /*
 Estilo de la cabecera, estableciendo un borde en coordenadas relativas a altura y anchura
 */
 header{   
      top:  calc(var(--bannerwidthA)/16);
-    height: calc(10%);
+    height: calc(9%);
     background:#4B4B4D; 
 }
 header .logo{
@@ -88,69 +93,11 @@ header .logo{
     left: calc(1%);
     height: calc(50%);
     width: 14vw;
-    
-    border-color:#4B4B4D;
-    border-style: solid;
-    margin: 1.5vh;
+
+    margin: 2vh;
     background:#D2D3D5;
 }
 
-/*Estilo de la barra de navegación y
-del grupo de navegación, 
-suponiendo 5 botones al 20% de la anchura!*/
-nav{
-    top: calc(1%);
-    
-    height: calc(5%);
-      
-    /*background:#D2D3D5;*/
-}
-nav .div1{    
-    left:0;
-    background:#97989A;
-    float:left; 
-    height:100%;
-    width:20%;
-}
-/*
-Sección generica suponiendo 3 grupos 
-*/
-section{
-    height: calc(25%);
-    
-   
-    background:#4B4B4D;
-}
-section .div1{
-    left:0;
-    background:#97989A;
-    float:left; 
-    height:100%;
-    width:33.33%;
-}
-/*
- Artículo con contenido centrado
-*/
-article{
-   height: calc(100% /2);
-    background:#97989A;
-    
-}
-article div{
-    left:0;
-    height:100%;    
-    background:#4B4B4D;  
-    border:0;   
-    
-}
-/*
-Pie de página con caracterisiticas similares a
-la cabecera
-*/
-footer{  
-    height: calc(9.6%);    
-    background:#4B4B4D;    
-}
 /* Botones sociales en la cabecera, alineados flotantes
 de derecha a izquierda, usando el redondeo 
 para dar efecto esféric
@@ -160,8 +107,102 @@ header .dotpoint{
     top: calc(10%);
     left:0;    
     background:white;
-    height: calc(30%);
-    width: calc(2%) ;
-    margin: 2vh 0.5vw;    
-    border-radius: 10px;  
+    height: calc(50%);
+    width: calc(4%) ;
+    margin: 2vh 1vw;
+    border-radius: 100px;  
+}
+
+/*Estilo de la barra de navegación y
+del grupo de navegación, 
+suponiendo 5 botones al 20% de la anchura!*/
+nav{
+    top: calc(1%);    
+    height: calc(4%);      
+    /*background:#D2D3D5;*/    
+   /* box-sizing:content-box;*/
+}
+/*
+ Alinear manualmente los divs y dejar el último hijo con una
+medida a mano
+*/
+nav .div1{    
+    /*left:0;*/
+    background:#97989A;
+    border-color:#E6E7E9;
+    float:left; 
+    height:100%;
+    width:19.8%;
+    
+    /*padding: 0 3vw 0;*/
+    /*margin: 0 calc(0.01%) 0vw calc(0.01%);*/
+    margin: 0 calc(1vw/3) 0 0;    
+}
+nav .div1:last-child{    
+    /*left:0;*/
+    background:#97989A;
+    border-color:#E6E7E9;
+    float:left; 
+    height:100%;
+    width:18.8%;
+    
+    /*padding: 0 3vw 0;*/
+    /*margin: 0 calc(0.01%) 0vw calc(0.01%);*/
+    margin: 0 0 0 0;    
+}
+
+/*
+Sección generica suponiendo 3 grupos 
+*/
+section{
+    height: calc(24%);
+    /*background:#4B4B4D;*/
+}
+/*
+ Alinear manualmente los divs y dejar el último hijo con una
+medida a mano
+*/
+section .div1{
+    /*left:0;*/
+    background:#97989A;
+    float:left; 
+    height:100%;
+    width:32.73%;
+    margin: 0 0.7vw 0 0;
+    
+}
+section .div1:last-child{
+    /*left:0;*/
+    background:#97989A;
+    float:left; 
+    height:100%;
+    width:32.42%;
+    margin: 0 0 0 0;
+    
+}
+
+/*
+ Artículo con contenido centrado
+*/
+article{
+   height: calc(80% /2);
+    background:#97989A;
+    
+}
+article div{
+    left:0;
+    height:100%;    
+    background:#4B4B4D; 
+    width:50%;
+    margin: 0 calc(50%/2) 0;
+    /*padding: 1vw;
+    border-color:red;*/
+}
+/*
+Pie de página con caracterisiticas similares a
+la cabecera
+*/
+footer{  
+    height: calc(8.6%);    
+    background:#4B4B4D;    
 }
